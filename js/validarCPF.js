@@ -2,9 +2,7 @@ export default function ehUmCPF(campo) {
     const cpf = campo.value.replace(/\.|-/g, "");
     
     if (validaNumerosRepetidos(cpf) || validaPrimeiroDigito(cpf) || validaSegundoDigito(cpf)) {
-        console.log("Esse cpf não existe!");
-    } else {
-            console.log("Existe!");
+        campo.setCustomValidity('Esse CPF não é valido');
     };
 };
 
@@ -20,7 +18,7 @@ function validaNumerosRepetidos(cpf) {
         '77777777777',
         '88888888888',
         '99999999999'
-    ]
+    ];
 
    return numeroRepetido.includes(cpf);
 };
