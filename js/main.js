@@ -1,9 +1,21 @@
-const camposFormulario = document.querySelector("[required]");
+import ehUmCPF from "./validarCPF.js";
+import maiorIdade from "./validaIdade.js";
 
-camposFormulario.forEach( campo => {
+const camposFormulario = document.querySelectorAll('[required]');
+
+camposFormulario.forEach( (campo) => {
     campo.addEventListener("blur", () => verificaCampo(campo));
+    
 });
 
 function verificaCampo(campo) {
+    if (campo.name == "cpf" && campo.value.length >= 11) {
+        ehUmCPF(campo);
+    };
 
+    if (campo.name == "aniversario" && campo.value != "") {
+        maiorIdade(campo);
+    };
+
+    console.log(ValidityState);
 };
